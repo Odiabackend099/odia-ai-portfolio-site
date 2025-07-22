@@ -1,0 +1,8 @@
+
+project_id = "ckrdbdeloywizowejwwu"
+
+[functions.voice-session]
+verify_jwt = false
+
+[functions.elevenlabs-conversation]
+verify_jwt = false

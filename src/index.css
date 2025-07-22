@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Professional AI Design System - Clean, minimal, industry standard */
+
+@layer base {
+  :root {
+    /* Base colors - Professional grays */
+    --background: 0 0% 100%;
+    --foreground: 240 10% 10%;
+
+    /* Card system */
+    --card: 0 0% 98%;
+    --card-foreground: 240 10% 10%;
+
+    /* Interactive elements */
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 10%;
+
+    /* Primary - Professional blue-gray */
+    --primary: 240 30% 20%;
+    --primary-foreground: 0 0% 98%;
+    --primary-glow: 240 30% 35%;
+
+    /* Secondary - Clean neutral */
+    --secondary: 240 5% 96%;
+    --secondary-foreground: 240 10% 20%;
+
+    /* Muted states */
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
+
+    /* Accent - Subtle tech blue */
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 98%;
+    --accent-subtle: 217 30% 95%;
+
+    /* Status colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --success: 142 76% 36%;
+    --warning: 38 92% 50%;
+
+    /* Interface elements */
+    --border: 240 6% 90%;
+    --input: 240 6% 96%;
+    --ring: 217 91% 60%;
+
+    --radius: 0.75rem;
+
+    /* Professional gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent) / 0.1), hsl(var(--accent) / 0.05));
+
+    /* Professional shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(var(--foreground) / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(var(--foreground) / 0.1), 0 2px 4px -1px hsl(var(--foreground) / 0.06);
+    --shadow-lg: 0 10px 15px -3px hsl(var(--foreground) / 0.1), 0 4px 6px -2px hsl(var(--foreground) / 0.05);
+    --shadow-glow: 0 0 20px hsl(var(--accent) / 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s ease-out;
+  }
+
+  .dark {
+    /* Dark theme - Professional dark interface */
+    --background: 240 10% 4%;
+    --foreground: 240 5% 95%;
+
+    --card: 240 10% 6%;
+    --card-foreground: 240 5% 95%;
+
+    --popover: 240 10% 6%;
+    --popover-foreground: 240 5% 95%;
+
+    --primary: 240 5% 95%;
+    --primary-foreground: 240 10% 10%;
+    --primary-glow: 217 91% 70%;
+
+    --secondary: 240 8% 12%;
+    --secondary-foreground: 240 5% 85%;
+
+    --muted: 240 8% 12%;
+    --muted-foreground: 240 4% 60%;
+
+    --accent: 217 91% 60%;
+    --accent-foreground: 240 10% 4%;
+    --accent-subtle: 217 50% 15%;
+
+    --success: 142 76% 45%;
+    --warning: 38 92% 60%;
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 240 5% 95%;
+
+    --border: 240 8% 15%;
+    --input: 240 8% 12%;
+    --ring: 217 91% 60%;
+
+    /* Dark gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary-glow)), hsl(var(--accent)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent) / 0.15), hsl(var(--accent) / 0.05));
+
+    /* Dark shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.3);
+    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.4), 0 2px 4px -1px hsl(0 0% 0% / 0.3);
+    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.4), 0 4px 6px -2px hsl(0 0% 0% / 0.3);
+    --shadow-glow: 0 0 30px hsl(var(--accent) / 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Professional scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted/30;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+
+  /* Focus styles */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer components {
+  .ai-gradient {
+    background: var(--gradient-primary);
+  }
+
+  .ai-glass {
+    @apply backdrop-blur-md bg-card/80 border border-border/50;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .ai-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .ai-transition {
+    transition: var(--transition-smooth);
+  }
+
+  .ai-transition-fast {
+    transition: var(--transition-fast);
+  }
+}
